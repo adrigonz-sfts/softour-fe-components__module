@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+echo "🔍 Running ESLint..."
+npx eslint src/ --fix
+
+echo "📝 Checking for ESLint changes..."
+if ! git diff --exit-code --quiet; then
+    echo "✏️ ESLint fixed files. Auto-committing changes..."
+    git add src/
+    git commit -m "chore: lint fixes [pre-commit]" || true
+fi
+
+echo "✅ Running unit tests..."
+npx vitest run
+
+echo "🎭 Running E2E tests..."
+npx playwright test
+
+echo "✨ Pre-commit checks passed!"

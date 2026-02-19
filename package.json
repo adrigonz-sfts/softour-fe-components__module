@@ -1,0 +1,105 @@
+{
+    "name": "softour-fe-components__module",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./dist/wso2-login-module.umd.js",
+    "module": "./dist/wso2-login-module.es.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/wso2-login-module.es.js",
+            "require": "./dist/wso2-login-module.umd.js"
+        },
+        "./style.css": "./dist/wso2-login-module.css"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "type-check": "vue-tsc --noEmit",
+        "test": "vitest",
+        "test:e2e": "playwright test",
+        "test:e2e:ui": "playwright test --ui",
+        "test:e2e:headed": "playwright test --headed",
+        "test:e2e:debug": "playwright test --debug",
+        "test:e2e:report": "playwright show-report",
+        "coverage": "vitest run --coverage",
+        "preview": "vite preview",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
+        "lint:styles": "stylelint \"src/**/*.{css,scss,vue}\"",
+        "lint:styles:fix": "stylelint \"src/**/*.{css,scss,vue}\" --fix",
+        "format": "prettier --write \"src/**/*.{js,ts,vue,json,scss,css,md}\"",
+        "format:check": "prettier --check \"src/**/*.{js,ts,vue,json,scss,css,md}\"",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "oidc-client-ts": "^3.4.1"
+    },
+    "peerDependencies": {
+        "pinia": "^3.0.0",
+        "vue": "^3.5.0",
+        "vue-router": "^4.6.0",
+        "vue-i18n": "^11.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@playwright/test": "^1.58.2",
+        "@testing-library/user-event": "^14.6.1",
+        "@testing-library/vue": "^8.1.0",
+        "@types/node": "^25.2.3",
+        "@typescript-eslint/eslint-plugin": "^8.55.0",
+        "@typescript-eslint/parser": "^8.55.0",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "@vitest/coverage-v8": "^4.0.18",
+        "@vue/tsconfig": "^0.8.1",
+        "eslint": "^10.0.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-import-resolver-alias": "^1.1.2",
+        "eslint-plugin-import-x": "^4.16.1",
+        "eslint-plugin-prettier": "^5.5.5",
+        "eslint-plugin-vue": "^10.7.0",
+        "globals": "^17.3.0",
+        "happy-dom": "^20.5.0",
+        "husky": "^9.1.7",
+        "jsdom": "^27.4.0",
+        "lint-staged": "^16.2.7",
+        "pinia": "^3.0.4",
+        "postcss": "^8.5.6",
+        "postcss-html": "^1.8.1",
+        "postcss-scss": "^4.0.9",
+        "prettier": "^3.8.1",
+        "sass-embedded": "^1.97.3",
+        "stylelint": "^17.2.0",
+        "stylelint-config-standard-scss": "^17.0.0",
+        "stylelint-scss": "^7.0.0",
+        "typescript": "^5.9.3",
+        "vite": "^7.2.4",
+        "vite-plugin-dts": "^4.5.4",
+        "vitest": "^4.0.18",
+        "vue": "^3.5.24",
+        "vue-eslint-parser": "^10.2.0",
+        "vue-i18n": "^11.2.8",
+        "vue-router": "^4.6.4",
+        "vue-tsc": "^3.2.4"
+    },
+    "lint-staged": {
+        "src/**/*.{js,ts,vue}": [
+            "prettier --write",
+            "eslint --fix"
+        ],
+        "src/**/*.{css,scss}": [
+            "stylelint --fix",
+            "prettier --write"
+        ],
+        "src/**/*.vue": [
+            "stylelint --fix"
+        ],
+        "src/**/*.{json,md}": [
+            "prettier --write"
+        ]
+    }
+}

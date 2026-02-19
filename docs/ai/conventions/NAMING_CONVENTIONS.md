@@ -1,0 +1,33 @@
+# Naming Conventions
+
+These rules are mandatory for all identifiers, files, and documents.
+
+## Identifier Rules
+
+- All identifiers must be in English.
+- Variables and functions use `camelCase`.
+- Constants use `UPPER_SNAKE_CASE`.
+- Boolean variables must use prefixes such as `is`, `has`, `can`, `should`, or `needs`.
+- Names must be descriptive and unambiguous.
+- Abbreviations are forbidden unless they are universally understood and documented.
+
+## Architectural Naming Rules
+
+- Domain entities must use business language, not UI terms.
+- Services must be named after use cases, not implementation details.
+- API functions must be named after the external resource or endpoint they access.
+- Store actions must describe the state change they trigger.
+
+## Prohibitions
+
+- Non-English identifiers.
+- Boolean names without a clear boolean prefix.
+- Misleading names that hide side effects or IO.
+- Naming that implies a different layer responsibility.
+
+## Validation Checklist
+
+- All names are English and consistent.
+- All booleans use approved prefixes (`is`, `has`, `can`, `should`, `needs`).
+- Constants use `UPPER_SNAKE_CASE`.
+- Names match the layer responsibility.
