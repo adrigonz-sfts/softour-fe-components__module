@@ -18,6 +18,8 @@
     ],
     "scripts": {
         "dev": "vite",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
         "build": "vite build",
         "type-check": "vue-tsc --noEmit",
         "test": "vitest",
@@ -37,17 +39,22 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "harmony-ui": "^1.0.1",
         "oidc-client-ts": "^3.4.1"
     },
     "peerDependencies": {
         "pinia": "^3.0.0",
         "vue": "^3.5.0",
-        "vue-router": "^4.6.0",
-        "vue-i18n": "^11.0.0"
+        "vue-i18n": "^11.0.0",
+        "vue-router": "^4.6.0"
     },
     "devDependencies": {
-        "@eslint/js": "^10.0.1",
+        "@eslint/js": "^9.0.0",
         "@playwright/test": "^1.58.2",
+        "@storybook/addon-docs": "^10.2.10",
+        "@storybook/addon-links": "^10.2.10",
+        "@storybook/vue3-vite": "^10.2.10",
+        "@testing-library/jest-dom": "^6.9.1",
         "@testing-library/user-event": "^14.6.1",
         "@testing-library/vue": "^8.1.0",
         "@types/node": "^25.2.3",
@@ -56,7 +63,7 @@
         "@vitejs/plugin-vue": "^6.0.1",
         "@vitest/coverage-v8": "^4.0.18",
         "@vue/tsconfig": "^0.8.1",
-        "eslint": "^10.0.0",
+        "eslint": "^9.0.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-import-resolver-alias": "^1.1.2",
         "eslint-plugin-import-x": "^4.16.1",
@@ -73,6 +80,7 @@
         "postcss-scss": "^4.0.9",
         "prettier": "^3.8.1",
         "sass-embedded": "^1.97.3",
+        "storybook": "^10.2.10",
         "stylelint": "^17.2.0",
         "stylelint-config-standard-scss": "^17.0.0",
         "stylelint-scss": "^7.0.0",

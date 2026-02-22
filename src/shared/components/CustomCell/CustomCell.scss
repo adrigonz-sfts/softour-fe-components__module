@@ -1,0 +1,38 @@
+.custom-cell {
+    $base: &;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 100%;
+    padding: var(--space-xs);
+    background-color: var(--color-surface-float);
+    text-align: left;
+    overflow: hidden;
+    color: var(--color-text-primary);
+
+    &__content {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* número de líneas */
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &:hover {
+        background-color: var(--color-surface-float-hover);
+        max-width: none;
+    }
+
+    &--heading {
+        justify-content: center;
+
+        #{$base}__content {
+            font-weight: bold;
+            text-align: center;
+            word-break: normal;
+        }
+    }
+}

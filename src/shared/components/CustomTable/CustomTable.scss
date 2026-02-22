@@ -1,0 +1,19 @@
+$panelPadding: var(--space-lg);
+$panelTitleHeight: 65px;
+$tableTitleHeight: 48px;
+$tableTitleMatgin: var(--space-lg);
+
+.custom-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(
+        95vh - #{$panelPadding} - #{$panelTitleHeight} - #{$tableTitleHeight} - #{$tableTitleMatgin}
+    );
+
+    &__content {
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+    }
+}

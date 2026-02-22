@@ -1,0 +1,28 @@
+.custom-row {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    border-bottom: 1px solid var(--border-color-default);
+    min-height: var(--space-3xl);
+
+    &:nth-of-type(1) {
+        border-top-left-radius: var(--border-radius-sm);
+        border-top-right-radius: var(--border-radius-sm);
+        overflow: hidden;
+    }
+
+    &:nth-last-of-type(1) {
+        border-bottom-left-radius: var(--border-radius-sm);
+        border-bottom-right-radius: var(--border-radius-sm);
+        border-bottom: none;
+        overflow: hidden;
+    }
+
+    &--heading {
+        font-weight: bold;
+
+        &:nth-last-of-type(1) {
+            border-bottom: 1px solid var(--border-color-subtle);
+        }
+    }
+}

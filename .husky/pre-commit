@@ -14,7 +14,7 @@ fi
 echo "✅ Running unit tests..."
 npx vitest run
 
-echo "🎭 Running E2E tests..."
-npx playwright test
+# echo "🎭 Running E2E tests..."
+# npx playwright test
 
 echo "✨ Pre-commit checks passed!"

@@ -1,14 +1,3 @@
-// Global styles
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family:
-        system-ui,
-        -apple-system,
-        sans-serif;
-}
+@use './styles/resets.scss';
+@use './styles/themes.scss';
+@use './styles/tokens.scss';

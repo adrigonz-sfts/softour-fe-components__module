@@ -1,0 +1,9 @@
+html,
+body,
+#root,
+#storybook-root,
+.sb-show-main,
+.sbdocs,
+.docs-story {
+    font-family: var(--font-family-base, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+}
