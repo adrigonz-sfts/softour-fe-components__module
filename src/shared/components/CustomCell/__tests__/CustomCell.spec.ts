@@ -1,27 +1,25 @@
-import { within } from '@testing-library/vue';
+import { within, screen } from '@testing-library/vue';
 import { describe, it, expect } from 'vitest';
 import { customRenderer } from '@/helpers/customRenderer';
 import CustomCell from '../CustomCell.vue';
 
 describe('CustomCell.vue', () => {
     it('renders slot content', async () => {
-        const { container } = await customRenderer(CustomCell)
-            .withSlots({ default: 'Company Name' })
-            .build();
+        await customRenderer(CustomCell).withSlots({ default: 'Company Name' }).build();
 
-        const cell = within(container).getByRole('cell');
+        const cell = screen.getByRole('cell');
 
         expect(cell).toHaveAttribute('role', 'cell');
         expect(within(cell).getByText('Company Name')).toBeInTheDocument();
     });
 
     it('adds heading modifier class when isHeading is true', async () => {
-        const { container } = await customRenderer(CustomCell)
+        await customRenderer(CustomCell)
             .withProps({ isHeading: true, colIndex: 2 })
             .withSlots({ default: 'Header Value' })
             .build();
 
-        const cell = within(container).getByRole('columnheader');
+        const cell = screen.getByRole('columnheader');
 
         expect(cell).toHaveClass('custom-cell--heading');
         expect(cell).toHaveAttribute('role', 'columnheader');

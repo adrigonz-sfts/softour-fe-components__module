@@ -18,7 +18,6 @@ import CustomPanel from './shared/components/CustomPanel/CustomPanel.vue';
 import CustomIcon from './shared/components/CustomIcon/CustomIcon.vue';
 import CustomIconButton from './shared/components/CustomIconButton/CustomIconButton.vue';
 
-
 const install = (app: App) => {
     app.component('CustomButton', CustomButton);
     app.component('CustomCell', CustomCell);
@@ -29,5 +28,14 @@ const install = (app: App) => {
     app.component('CustomIconButton', CustomIconButton);
 };
 
-export { CustomButton, CustomCell, CustomRow, CustomTable, CustomPanel, CustomIcon, CustomIconButton, install };
+export {
+    CustomButton,
+    CustomCell,
+    CustomRow,
+    CustomTable,
+    CustomPanel,
+    CustomIcon,
+    CustomIconButton,
+    install,
+};
 export default { install };
