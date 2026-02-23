@@ -1,0 +1,93 @@
+/**
+ * Typography utility classes by usage
+ * Each class sets font-family, size, weight, line-height.
+ */
+
+/* =====================================================
+   CAPTION – small supporting text, labels, hints
+   ===================================================== */
+.caption-sm {
+    font-family: var(--font-family-base);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.caption-md {
+    font-family: var(--font-family-base);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375;
+}
+
+/* =====================================================
+   BODY – main content, paragraphs
+   ===================================================== */
+.body-sm {
+    font-family: var(--font-family-base);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.body-md {
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.body-lg {
+    font-family: var(--font-family-base);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   HEADLINE – section titles, card titles
+   ===================================================== */
+.headline-sm {
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.375;
+}
+
+.headline-md {
+    font-family: var(--font-family-base);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.375;
+}
+
+.headline-lg {
+    font-family: var(--font-family-base);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+/* =====================================================
+   DISPLAY – page titles, hero
+   ===================================================== */
+.display-sm {
+    font-family: var(--font-family-base);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.display-md {
+    font-family: var(--font-family-base);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.display-lg {
+    font-family: var(--font-family-base);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+}

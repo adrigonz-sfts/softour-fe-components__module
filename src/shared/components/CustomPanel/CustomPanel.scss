@@ -1,20 +1,25 @@
-.custom-table-panel {
+.custom-panel {
     $base: &;
 
     width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: var(--space-lg);
-    background-color: var(--color-surface-base);
+    background-color: var(--color-surface-float);
     border-radius: var(--border-radius-md);
     color: var(--color-text-primary);
+    border: var(--border-width-sm) solid var(--border-color-subtle);
+    box-shadow: var(--elevation-1-shadow);
+    overflow: hidden;
 
     &__wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: var(--space-lg);
+        background-color: var(--color-surface-brand-secondary);
+        color: var(--color-text-inverse);
+        padding: var(--space-sm) var(--space-md);
     }
 
     &__wrapper-title {
@@ -25,10 +30,6 @@
 
     &__filter-button {
         margin-left: auto;
-    }
-
-    &__collapse-wrapper {
-        margin-top: var(--space-lg);
     }
 
     &__filter-transition-enter-active,

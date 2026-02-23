@@ -1,0 +1,26 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "declarationMap": true
+    },
+    "include": [
+        "src/index.ts",
+        "src/shared/components/**/*.vue",
+        "src/shared/components/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "src/**/__tests__/**",
+        "src/**/*.spec.ts",
+        "src/**/*.stories.ts",
+        "src/main.ts",
+        "src/App.vue",
+        "src/routes.ts"
+    ]
+}

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import CustomTable from '../CustomTable/CustomTable.vue';
-import CustomTablePanel from './CustomTablePanel.vue';
+import CustomPanel from './CustomPanel.vue';
 
 const headingRows = ['Company', 'Name', 'Country'];
 const dataRows = Array.from({ length: 20 }).map((_, index) => [
@@ -10,8 +10,8 @@ const dataRows = Array.from({ length: 20 }).map((_, index) => [
 ]);
 
 const meta = {
-    title: 'Table/CustomTablePanel',
-    component: CustomTablePanel,
+    title: 'Table/CustomPanel',
+    component: CustomPanel,
     tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
@@ -20,20 +20,20 @@ const meta = {
         title: 'Companies',
         subTitle: 'Demo table component',
     },
-} satisfies Meta<typeof CustomTablePanel>;
+} satisfies Meta<typeof CustomPanel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => ({
-        components: { CustomTablePanel, CustomTable },
+        components: { CustomPanel, CustomTable },
         setup() {
             return { args, headingRows, dataRows };
         },
         template: `
             <div style="padding: 24px;">
-                <CustomTablePanel v-bind="args">
+                <CustomPanel v-bind="args">
                     <template #filters>
                         <div style="display: flex; gap: 8px;">
                             <input placeholder="Search" style="padding: 8px;" />
@@ -43,7 +43,7 @@ export const Default: Story = {
                     <template #table>
                         <CustomTable :headingRows="headingRows" :dataRows="dataRows" />
                     </template>
-                </CustomTablePanel>
+                </CustomPanel>
             </div>
         `,
     }),

@@ -4,10 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    text-align: left;
     max-width: 100%;
-    padding: var(--space-xs);
-    background-color: var(--color-surface-float);
+    padding: var(--space-sm);
+    background-color: var(--color-surface-base);
     text-align: left;
     overflow: hidden;
     color: var(--color-text-primary);
@@ -27,12 +26,19 @@
     }
 
     &--heading {
-        justify-content: center;
+        background-color: var(--color-surface-base-inverse);
+        color: var(--color-text-inverse);
 
         #{$base}__content {
             font-weight: bold;
             text-align: center;
             word-break: normal;
+        }
+
+        &:hover {
+            background-color: var(--color-surface-base-inverse);
+            color: var(--color-text-inverse);
+            max-width: none;
         }
     }
 }

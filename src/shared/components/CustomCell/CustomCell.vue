@@ -1,6 +1,6 @@
 <template>
     <div
-        class="custom-cell"
+        class="custom-cell body-sm"
         :class="{ 'custom-cell--heading': props.isHeading }"
         :role="props.isHeading ? 'columnheader' : 'cell'"
         :aria-colindex="props.colIndex"

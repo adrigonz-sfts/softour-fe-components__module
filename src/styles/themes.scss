@@ -1,50 +1,85 @@
 /* =====================================================
-   TEMA · SPRING GREEN
-   ===================================================== */
-[data-theme="theme-green"] {
-  --color-50:  #edfff7;
-  --color-100: #d5ffee;
-  --color-200: #aeffdd;
-  --color-300: #6fffc5;
-  --color-400: #36ffaa;
-  --color-500: #00e985;
-  --color-600: #00c26b;
-  --color-700: #009857;
-  --color-800: #047748;
-  --color-900: #06613d;
-  --color-950: #003720;
+  THEME · LIGHT (default semantic override)
+  ===================================================== */
+[data-theme='theme-light'] {
+    --color-bg-app: var(--color-50);
+
+    --color-surface-base: var(--color-white);
+    --color-surface-float: var(--color-100);
+    --color-surface-modal: var(--color-white);
+
+    --color-surface-base-hover: var(--color-100);
+    --color-surface-base-active: var(--color-200);
+    --color-surface-base-selected: var(--color-300);
+    --color-surface-base-disabled: var(--color-200);
+
+    --color-surface-float-hover: var(--color-200);
+    --color-surface-float-active: var(--color-300);
+
+    --color-surface-modal-active: var(--color-100);
+
+    --color-surface-brand-default: var(--color-brand-blue-500);
+    --color-surface-brand-secondary: var(--color-brand-blue-600);
+    --color-surface-brand-canvas: var(--color-brand-blue-100);
+    --color-surface-brand-hover: var(--color-brand-blue-400);
+    --color-surface-brand-active: var(--color-brand-blue-700);
+
+    --color-text-primary: var(--color-950);
+    --color-text-secondary: var(--color-700);
+    --color-text-inverse: var(--color-white);
+    --color-text-disabled: var(--color-400);
+
+    --color-title-bar-bg: var(--color-black);
+    --color-title-bar-text: var(--color-white);
+
+    --border-color-default: var(--color-300);
+    --border-color-subtle: var(--color-200);
 }
 
 /* =====================================================
-   TEMA · SCARLET GUM
-   ===================================================== */
-[data-theme="theme-purple"] {
-  --color-50:  #fbf5fe;
-  --color-100: #f6eafd;
-  --color-200: #edd4fa;
-  --color-300: #e0b2f5;
-  --color-400: #cf84ee;
-  --color-500: #b855e0;
-  --color-600: #9e35c4;
-  --color-700: #8429a2;
-  --color-800: #6e2385;
-  --color-900: #521e60;
-  --color-950: #3b0b47;
+  THEME · DARK
+  ===================================================== */
+[data-theme='theme-dark'] {
+    --color-bg-app: var(--color-950);
+
+    --color-surface-base: #111414;
+    --color-surface-float: var(--color-900);
+    --color-surface-modal: #151919;
+
+    --color-surface-base-hover: var(--color-900);
+    --color-surface-base-active: var(--color-800);
+    --color-surface-base-selected: var(--color-700);
+    --color-surface-base-disabled: var(--color-900);
+
+    --color-surface-float-hover: var(--color-800);
+    --color-surface-float-active: var(--color-700);
+
+    --color-surface-modal-active: var(--color-800);
+
+    --color-surface-brand-default: var(--color-brand-blue-500);
+    --color-surface-brand-secondary: var(--color-brand-blue-600);
+    --color-surface-brand-canvas: #102a3c;
+    --color-surface-brand-hover: var(--color-brand-blue-400);
+    --color-surface-brand-active: var(--color-brand-blue-700);
+
+    --color-text-primary: var(--color-white);
+    --color-text-secondary: var(--color-300);
+    --color-text-inverse: var(--color-950);
+    --color-text-disabled: var(--color-500);
+
+    --color-title-bar-bg: var(--color-black);
+    --color-title-bar-text: var(--color-brand-blue-400);
+
+    --border-color-default: var(--color-700);
+    --border-color-subtle: var(--color-800);
 }
 
 /* =====================================================
-   TEMA · MONZA
-   ===================================================== */
-[data-theme="theme-red"] {
-  --color-50:  #fef2f2;
-  --color-100: #fde3e3;
-  --color-200: #fdcbcc;
-  --color-300: #faa7a8;
-  --color-400: #f57476;
-  --color-500: #eb484a;
-  --color-600: #c72527;
-  --color-700: #b52022;
-  --color-800: #961e1f;
-  --color-900: #7d1f20;
-  --color-950: #440b0c;
+  BRAND ACCENT · BLUE (optional explicit)
+  ===================================================== */
+[data-brand='blue'] {
+    --color-action-primary: var(--color-brand-blue-500);
+    --color-action-primary-hover: var(--color-brand-blue-400);
+    --color-action-primary-active: var(--color-brand-blue-600);
+    --border-color-focus: var(--color-brand-blue-500);
 }

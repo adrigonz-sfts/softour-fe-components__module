@@ -1,73 +1,148 @@
 :root {
     /* =====================================================
+     BRAND PRIMITIVES (Softour blue)
+     ===================================================== */
+    --color-brand-100: #d6f1f7;
+    --color-brand-300: #7bcde5;
+    --color-brand-400: #3eaed2;
+    --color-brand-500: #00a3cd;
+    --color-brand-600: #20759a;
+    --color-brand-700: #0d4052;
+
+    /* =====================================================
+     NEUTRAL PRIMITIVES (white/black based)
+     ===================================================== */
+    --color-white: #fcfcfc;
+    --color-black: #1a2a3a;
+
+    /* =====================================================
      PALETA BASE (THEMEABLE)
      ===================================================== */
-    --color-50: #effbfc;
-    --color-100: #d6f1f7;
-    --color-200: #b1e2f0;
-    --color-300: #7bcde5;
-    --color-400: #3eaed2;
-    --color-500: #259bc3;
-    --color-600: #20759a;
-    --color-700: #20607e;
-    --color-800: #224f68;
-    --color-900: #214358;
-    --color-950: #102a3c;
+    --color-50: #fcfcfc;
+    --color-100: #f1f5f5;
+    --color-200: #dce1e1;
+    --color-300: #cacece;
+    --color-400: #a7adad;
+    --color-500: #808989;
+    --color-600: #656e6d;
+    --color-700: #515959;
+    --color-800: #343a3a;
+    --color-900: #1a1f1f;
+    --color-950: #0c0c0c;
 
     /* =====================================================
      ESTRUCTURA
      ===================================================== */
     --color-bg-app: var(--color-50);
 
-    --color-surface-base: var(--color-950);
-    --color-surface-float: var(--color-800);
-    --color-surface-modal: var(--color-700);
+    --color-surface-base: var(--color-50);
+    --color-surface-float: var(--color-100);
+    --color-surface-modal: var(--color-white);
+    --color-surface-base-inverse: var(--color-black);
+
+    /* Surface - Brand (states) */
+    --color-surface-brand-default: var(--color-brand-500);
+    --color-surface-brand-secondary: var(--color-brand-700);
+    --color-surface-brand-canvas: var(--color-brand-100);
+    --color-surface-brand-hover: var(--color-brand-400);
+    --color-surface-brand-active: var(--color-brand-700);
+    --color-surface-brand-selected: var(--color-brand-600);
+    --color-surface-brand-disabled: var(--color-200);
 
     /* Estados por surface */
-    --color-surface-base-hover: var(--color-800);
-    --color-surface-base-active: var(--color-700);
-    --color-surface-base-selected: var(--color-300);
-    --color-surface-base-disabled: var(--color-900);
+    --color-surface-base-hover: var(--color-200);
+    --color-surface-base-active: var(--color-400);
+    --color-surface-base-selected: var(--color-500);
+    --color-surface-base-disabled: var(--color-200);
 
-    --color-surface-float-hover: var(--color-700);
-    --color-surface-float-active: var(--color-600);
+    --color-surface-float-hover: var(--color-200);
+    --color-surface-float-active: var(--color-300);
 
-    --color-surface-modal-active: var(--color-600);
+    --color-surface-modal-active: var(--color-100);
 
     /* =====================================================
      TEXTO
      ===================================================== */
-    --color-text-primary: var(--color-50);
-    --color-text-secondary: var(--color-200);
-    --color-text-inverse: var(--color-950);
-    --color-text-disabled: var(--color-300);
+    --color-text-primary: var(--color-950);
+    --color-text-secondary: var(--color-700);
+    --color-text-inverse: var(--color-white);
+    --color-text-disabled: var(--color-200);
+    --color-text-brand-primary: var(--color-brand-500);
 
     /* =====================================================
-     ACCIONES (BASE)
+     ACCIONES (BRANDED)
      ===================================================== */
-    --color-action-primary: var(--color-500);
-    --color-action-primary-hover: var(--color-400);
-    --color-action-primary-active: var(--color-600);
-    --color-action-primary-disabled: var(--color-700);
+    --color-action-primary: var(--color-brand-500);
+    --color-action-primary-hover: var(--color-brand-400);
+    --color-action-primary-active: var(--color-brand-600);
+    --color-action-primary-disabled: var(--color-400);
 
-    --color-action-secondary: var(--color-400);
-    --color-action-secondary-hover: var(--color-300);
-    --color-action-secondary-active: var(--color-500);
-    --color-action-secondary-disabled: var(--color-700);
+    --color-action-secondary: var(--color-brand-50);
+    --color-action-secondary-hover: var(--color-brand-500);
+    --color-action-secondary-active: var(--color-brand-700);
+    --color-action-secondary-disabled: var(--color-500);
+
+    /* =====================================================
+     SEMANTIC FEEDBACK (error, warning, info, okay)
+     ===================================================== */
+    --color-error-100: #fee2e2;
+    --color-error-400: #f87171;
+    --color-error-500: #ef4444;
+    --color-error-600: #dc2626;
+    --color-error-700: #b91c1c;
+
+    --color-warning-100: #fef3c7;
+    --color-warning-400: #fbbf24;
+    --color-warning-500: #f59e0b;
+    --color-warning-600: #d97706;
+    --color-warning-700: #b45309;
+
+    --color-info-100: #dbeafe;
+    --color-info-400: #60a5fa;
+    --color-info-500: #3b82f6;
+    --color-info-600: #2563eb;
+    --color-info-700: #1d4ed8;
+
+    --color-success-100: #dcfce7;
+    --color-success-400: #4ade80;
+    --color-success-500: #22c55e;
+    --color-success-600: #16a34a;
+    --color-success-700: #15803d;
+
+    /* Semantic actions (e.g. for buttons) */
+    --color-action-error: var(--color-error-500);
+    --color-action-error-hover: var(--color-error-400);
+    --color-action-error-active: var(--color-error-600);
+    --color-action-error-disabled: var(--color-400);
+
+    --color-action-warning: var(--color-warning-500);
+    --color-action-warning-hover: var(--color-warning-400);
+    --color-action-warning-active: var(--color-warning-600);
+    --color-action-warning-disabled: var(--color-400);
+
+    --color-action-info: var(--color-info-500);
+    --color-action-info-hover: var(--color-info-400);
+    --color-action-info-active: var(--color-info-600);
+    --color-action-info-disabled: var(--color-400);
+
+    --color-action-success: var(--color-success-500);
+    --color-action-success-hover: var(--color-success-400);
+    --color-action-success-active: var(--color-success-600);
+    --color-action-success-disabled: var(--color-400);
 
     /* =====================================================
      ACCIONES CONTEXTUALES POR ELEVACIÓN
      ===================================================== */
 
     /* Actions sobre surface-float */
-    --color-action-primary-on-float: var(--color-400);
-    --color-action-primary-on-float-hover: var(--color-300);
-    --color-action-primary-on-float-active: var(--color-500);
+    --color-action-primary-on-float: var(--color-action-primary);
+    --color-action-primary-on-float-hover: var(--color-action-primary-hover);
+    --color-action-primary-on-float-active: var(--color-action-primary-active);
 
     /* Actions sobre surface-modal */
-    --color-action-primary-on-modal: var(--color-300);
-    --color-action-primary-on-modal-hover: var(--color-200);
-    --color-action-primary-on-modal-active: var(--color-400);
+    --color-action-primary-on-modal: var(--color-action-primary);
+    --color-action-primary-on-modal-hover: var(--color-action-primary-hover);
+    --color-action-primary-on-modal-active: var(--color-action-primary-active);
 
     /* =====================================================
      ELEVACIONES
@@ -112,9 +187,9 @@
     --border-radius-lg: 0.75rem; /* 12px */
     --border-radius-xl: 1rem; /* 16px */
 
-    --border-color-default: var(--color-700);
-    --border-color-subtle: var(--color-950);
-    --border-color-focus: var(--color-400);
+    --border-color-default: var(--color-300);
+    --border-color-subtle: var(--color-200);
+    --border-color-focus: var(--color-brand-500);
 
     /* =====================================================
      FUENTES

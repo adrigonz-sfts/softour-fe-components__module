@@ -2,11 +2,11 @@ import { screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect } from 'vitest';
 import { customRenderer } from '@/helpers/customRenderer.ts';
-import CustomTablePanel from '../CustomTablePanel.vue';
+import CustomPanel from '../CustomPanel.vue';
 
-describe('CustomTablePanel.vue', () => {
+describe('CustomPanel.vue', () => {
     it('renders the title and subtitle when provided', async () => {
-        const render = customRenderer(CustomTablePanel).withProps({
+        const render = customRenderer(CustomPanel).withProps({
             title: 'Main Title',
             subTitle: 'Subtitle',
         });
@@ -20,7 +20,7 @@ describe('CustomTablePanel.vue', () => {
     });
 
     it('does not render filters and renders table by default', async () => {
-        const render = customRenderer(CustomTablePanel)
+        const render = customRenderer(CustomPanel)
             .withProps({
                 title: 'Main Title',
             })
@@ -38,7 +38,7 @@ describe('CustomTablePanel.vue', () => {
     });
 
     it('toggles filters and collapse table content', async () => {
-        const render = customRenderer(CustomTablePanel)
+        const render = customRenderer(CustomPanel)
             .withProps({
                 title: 'Main Title',
             })
@@ -62,7 +62,7 @@ describe('CustomTablePanel.vue', () => {
     });
 
     it('Not renders filter button if not filter slot is present', async () => {
-        const render = customRenderer(CustomTablePanel)
+        const render = customRenderer(CustomPanel)
             .withProps({
                 title: 'Main Title',
             })

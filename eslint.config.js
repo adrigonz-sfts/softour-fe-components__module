@@ -309,6 +309,9 @@ export default [
 
             // Allow param reassign for store manipulation in tests
             'no-param-reassign': 'off',
+
+            // Vitest/Jest matchers (toHaveLength, toBe, etc.) trigger unbound-method; safe in tests
+            '@typescript-eslint/unbound-method': 'off',
         },
     },
 

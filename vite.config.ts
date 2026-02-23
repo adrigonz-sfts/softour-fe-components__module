@@ -4,19 +4,10 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
 // https://vite.dev/config/
-export default defineConfig(async ({ command }) => {
+// Note: vite-plugin-dts is not used here so the dev server doesn't load it (avoids api-extractor errors).
+// For .d.ts output you can run: npx vue-tsc --declaration --emitDeclarationOnly -p tsconfig.app.json (if you add that tsconfig).
+export default defineConfig(({ command }) => {
     const plugins = [vue()];
-
-    if (command === 'build') {
-        const { default: dts } = await import('vite-plugin-dts');
-        plugins.push(
-            dts({
-                include: ['src/index.ts', 'src/core/**/*', 'src/store/**/*', 'src/views/login/modules/Auth/Auth.vue', 'src/views/callback/modules/AuthCallback/AuthCallback.vue'],
-                exclude: ['src/**/__tests__/**', 'src/**/*.spec.ts', 'src/main.ts', 'src/App.vue', 'src/routes.ts'],
-                tsconfigPath: './tsconfig.json',
-            }),
-        );
-    }
 
     return {
         plugins,
@@ -28,22 +19,36 @@ export default defineConfig(async ({ command }) => {
         build: {
             lib: {
                 entry: resolve(__dirname, 'src/index.ts'),
-                name: 'WSO2LoginModule',
-                fileName: (format) => `wso2-login-module.${format}.js`,
+                name: 'SoftourFeComponents',
+                fileName: (format) => `softour-fe-components.${format}.js`,
                 formats: ['es', 'umd'],
             },
             rollupOptions: {
-                external: ['vue', 'vue-router', 'pinia', 'oidc-client-ts'],
+                external: [
+                    'vue',
+                    'vue-router',
+                    'pinia',
+                    'vue-i18n',
+                    'oidc-client-ts',
+                    '@heroicons/vue',
+                    '@heroicons/vue/24/outline',
+                    '@heroicons/vue/24/solid',
+                ],
                 output: {
                     globals: {
                         vue: 'Vue',
                         'vue-router': 'VueRouter',
                         pinia: 'Pinia',
+                        'vue-i18n': 'VueI18n',
                         'oidc-client-ts': 'OidcClient',
+                        '@heroicons/vue': 'HeroiconsVue',
+                        '@heroicons/vue/24/outline': 'HeroiconsVueOutline',
+                        '@heroicons/vue/24/solid': 'HeroiconsVueSolid',
                     },
-                    assetFileNames: (assetInfo) => {
-                        if (assetInfo.name === 'style.css') return 'wso2-login-module.css';
-                        if (assetInfo.name?.endsWith('.css')) return 'wso2-login-module.css';
+                    assetFileNames: (assetInfo: any) => {
+                        if (assetInfo.name === 'style.css') return 'softour-fe-components.css';
+                        if (assetInfo.name && assetInfo.name.endsWith('.css'))
+                            return 'softour-fe-components.css';
                         return assetInfo.name ?? 'asset';
                     },
                 },
@@ -62,7 +67,8 @@ export default defineConfig(async ({ command }) => {
             env: {
                 VITE_PRODUCTION: 'false',
                 VITE_WSO2_SERVER_URL: 'https://auth.softoursistemas.com/oauth2/token',
-                VITE_WSO2_AUTH_WELLKNOWN_ENDPOINT_URL: 'https://auth.softoursistemas.com/oauth2/token/.well-known/openid-configuration',
+                VITE_WSO2_AUTH_WELLKNOWN_ENDPOINT_URL:
+                    'https://auth.softoursistemas.com/oauth2/token/.well-known/openid-configuration',
                 VITE_WSO2_CLIENT_ID: 'EP3arurDPUgUSC7aUhMeGB2R8t8a',
                 VITE_WSO2_SCOPE: 'openid profile email roles',
                 VITE_WSO2_RESPONSE_TYPE: 'code',

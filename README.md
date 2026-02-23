@@ -47,11 +47,13 @@ npm run dev
 npm run dev
 ```
 
-- Build de librería:
+- Build de librería (genera el paquete en `dist/`):
 
 ```bash
 npm run build
 ```
+
+  Salida: `dist/softour-fe-components.es.js`, `dist/softour-fe-components.umd.js`, `dist/softour-fe-components.css`.
 
 - Tests unitarios:
 
@@ -114,6 +116,48 @@ En resumen:
 
 - `Default.vue` = playground operativo para construir e integrar.
 - Storybook = fuente canónica para documentar, validar y evolucionar componentes.
+
+---
+
+## Uso como paquete npm
+
+El proyecto se construye como librería y puede publicarse en npm o consumirse en local.
+
+### Consumir en otro proyecto
+
+1. En la app que consumirá los componentes, instalar dependencias peer (Vue, etc.) si no están ya:
+
+```bash
+npm install vue @heroicons/vue pinia vue-i18n vue-router
+```
+
+2. Instalar este paquete (ruta local o nombre si está publicado):
+
+```bash
+npm install /ruta/a/softour-fe-components__module
+# o, si está publicado: npm install softour-fe-components__module
+```
+
+3. En la app Vue:
+
+```js
+// Registrar todos los componentes (plugin)
+import SoftourFeComponents from 'softour-fe-components__module';
+import 'softour-fe-components__module/style.css';
+app.use(SoftourFeComponents);
+
+// O importar componentes concretos
+import { CustomTable, CustomPanel, CustomButton, CustomIcon } from 'softour-fe-components__module';
+import 'softour-fe-components__module/style.css';
+```
+
+### Publicar en npm
+
+Después de `npm run build`, la carpeta `dist/` y el `package.json` están listos para publicar. El campo `"files": ["dist"]` hace que solo se suba esa carpeta.
+
+```bash
+npm publish
+```
 
 ---
 

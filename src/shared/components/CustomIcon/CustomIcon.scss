@@ -1,0 +1,25 @@
+.custom-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--xs {
+        width: 8px;
+        height: 8px;
+    }
+
+    &--sm {
+        width: 16px;
+        height: 16px;
+    }
+
+    &--md {
+        width: 24px;
+        height: 24px;
+    }
+
+    &--lg {
+        width: 32px;
+        height: 32px;
+    }
+}

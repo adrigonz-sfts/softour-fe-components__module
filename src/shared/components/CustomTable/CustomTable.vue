@@ -6,7 +6,10 @@
         :aria-colcount="visibleColumnsCount"
         :aria-rowcount="props.dataRows.length + 1"
     >
-        <div role="rowgroup">
+        <div
+            role="rowgroup"
+            class="custom-table__heading"
+        >
             <CustomRow
                 isHeading
                 :cells="props.headingRows"
@@ -24,6 +27,8 @@
                 :cells="row"
                 :rowIndex="index + 2"
                 :hiddenColumns="props.hiddenColumns"
+                :dataIndex="index"
+                @rowClick="(dataIndex: number) => emit('rowClick', dataIndex)"
             />
         </div>
     </div>
@@ -32,6 +37,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import CustomRow from '../CustomRow/CustomRow.vue';
+
+const emit = defineEmits<{
+    rowClick: [dataIndex: number];
+}>();
 
 const props = defineProps({
     headingRows: {

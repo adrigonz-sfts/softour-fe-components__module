@@ -2,16 +2,16 @@
     "name": "softour-fe-components__module",
     "version": "0.0.1",
     "type": "module",
-    "main": "./dist/wso2-login-module.umd.js",
-    "module": "./dist/wso2-login-module.es.js",
+    "main": "./dist/softour-fe-components.umd.js",
+    "module": "./dist/softour-fe-components.es.js",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/wso2-login-module.es.js",
-            "require": "./dist/wso2-login-module.umd.js"
+            "import": "./dist/softour-fe-components.es.js",
+            "require": "./dist/softour-fe-components.umd.js"
         },
-        "./style.css": "./dist/wso2-login-module.css"
+        "./style.css": "./dist/softour-fe-components.css"
     },
     "files": [
         "dist"
@@ -20,7 +20,8 @@
         "dev": "vite",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "build": "vite build",
+        "build": "vite build && npm run build:types",
+        "build:types": "vue-tsc -p tsconfig.declaration.json",
         "type-check": "vue-tsc --noEmit",
         "test": "vitest",
         "test:e2e": "playwright test",
@@ -39,10 +40,12 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@heroicons/vue": "^2.2.0",
         "harmony-ui": "^1.0.1",
         "oidc-client-ts": "^3.4.1"
     },
     "peerDependencies": {
+        "@heroicons/vue": "^2.2.0",
         "pinia": "^3.0.0",
         "vue": "^3.5.0",
         "vue-i18n": "^11.0.0",
