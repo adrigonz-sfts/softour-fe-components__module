@@ -26,22 +26,8 @@ These rules are mandatory for every pull request.
 
 ## Architecture Requirements
 
-All changes must comply with **layer separation rules** (see `../AI_RULES.md`). Auto-reject violations:
-
-- IO in domain
-- Business logic in store/modules/views/shared  
-- Direct API calls outside core/api
-- Mappers outside core/services
-- Forbidden cross-layer imports
+See `../AI_RULES.md` (layer separation). Auto-reject: IO in domain; business logic in store/modules/views/shared; API outside core/api; mappers outside core/services; forbidden cross-layer imports.
 
 ## Validation Checklist
 
-- Behavior changes reference the correct spec.
-- Docs-only/refactor-only/maintenance-only PRs explicitly state that no spec is required.
-- Changes are within 200 lines.
-- All touched files remain under 500 lines.
-- Tests cover acceptance criteria.
-- Layer responsibilities are respected.
-- Naming and code conventions are satisfied.
-- No `else` statements exist in JS/TS control flow (Vue template directives like `v-else` are allowed).
-- All `if` statements use `{}`.
+See `../AI_RULES.md`. PR-specific: PR ≤200 lines (prod code); no file >500 lines; behavior changes require spec and tests covering acceptance criteria.

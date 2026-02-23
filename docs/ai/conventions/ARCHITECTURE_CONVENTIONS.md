@@ -29,7 +29,4 @@ core/domain depends on nothing.
 
 ## Validation Checklist
 
-- All changes live in correct layer (see AI_RULES.md)
-- Imports follow dependency flow rules (downward only)
-- All behavior changes are spec-backed
-- Tests cover acceptance criteria from spec
+See `../AI_RULES.md`.

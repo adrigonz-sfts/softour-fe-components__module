@@ -6,12 +6,7 @@ This document focuses on **review criteria** and **violation severity**.
 
 ## How to Review Code
 
-1. **Layer check**: Does each change live in correct layer? (see AI_RULES.md)
-2. **Imports check**: Are there forbidden import crossings?
-3. **Domain check**: Is domain pure and IO-free?
-4. **Store check**: Does store only orchestrate state (no logic)?
-5. **Services check**: Are all mappers in core/services?
-6. **IO check**: Is all IO isolated to core/api?
+1. Layer: correct layer per AI_RULES? 2. Imports: any forbidden crossings? 3. Domain: pure, IO-free? 4. Store: orchestration only, no logic? 5. Services: mappers only in core/services? 6. IO: isolated to core/api?
 
 ## Violation Severity
 

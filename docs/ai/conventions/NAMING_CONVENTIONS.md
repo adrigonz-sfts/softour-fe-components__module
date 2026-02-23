@@ -27,7 +27,4 @@ These rules are mandatory for all identifiers, files, and documents.
 
 ## Validation Checklist
 
-- All names are English and consistent.
-- All booleans use approved prefixes (`is`, `has`, `can`, `should`, `needs`).
-- Constants use `UPPER_SNAKE_CASE`.
-- Names match the layer responsibility.
+See `../AI_RULES.md`. Naming-specific: English only; booleans use `is`/`has`/`can`/`should`/`needs`; constants `UPPER_SNAKE_CASE`.

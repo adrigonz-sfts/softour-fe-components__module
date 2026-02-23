@@ -1,33 +1,19 @@
 # Spec Guidelines (Spec-Driven Development)
 
-This document defines how to write and manage specifications for a frontend project using pragmatic DDD.
+## 1) What Spec-Driven Development means
 
-## 1) What Spec-Driven Development means in frontend
-
-Spec-Driven Development (SDD) is a workflow where each feature begins with a written specification that defines behavior, inputs, outputs, constraints, and acceptance criteria before code is written.
-
-In frontend, SDD ensures:
-- UI behavior is explicit and testable.
-- Business rules are captured outside the implementation.
-- Architectural boundaries are respected by design.
-- Tests are derived directly from the spec.
+- Feature starts with a written spec (behavior, inputs, outputs, constraints, acceptance criteria) before code.
+- UI behavior explicit and testable; business rules outside implementation; architecture respected; tests derived from spec.
 
 ## 2) How a spec must be structured
 
-Each spec must be written as a standalone, complete document that explains what the feature does and how it should be validated. The spec must be structured with clear sections and consistent ordering.
+- Standalone, complete document; clear sections, consistent order.
+- Plain language, testable; precise inputs/outputs; architectural constraints and layer placement declared; acceptance criteria observable.
 
-The spec must:
-- Use plain language that is testable.
-- Be precise about inputs and outputs.
-- Declare architectural constraints and layer placement.
-- Define acceptance criteria in observable terms.
+## 3) Functional vs technical spec
 
-## 3) Functional spec vs technical spec
-
-- Functional spec: describes user-visible behavior, workflows, states, and outcomes. It is written for product and QA alignment.
-- Technical spec: describes system interactions, data flow, layer responsibilities, and integration constraints. It is written for implementation alignment.
-
-Both can be in the same document, but the functional portion must come first and be clearly separated from the technical portion.
+- Functional: user-visible behavior, workflows, states, outcomes (product/QA). Technical: data flow, layer responsibilities, integration (implementation).
+- Both may be in one document; functional first, clearly separated.
 
 ## 4) Mandatory structure of every spec
 
@@ -70,26 +56,14 @@ Each spec must include these sections in this order:
 - Undefined terms or ambiguous language.
 - Hidden requirements not surfaced in acceptance criteria.
 
-## 6) How to version specs
+## 6) Versioning
 
-- Each spec must have a version number in the header (e.g., v1.0, v1.1).
-- Each update must document what changed and why.
-- Breaking changes must increment the major version.
-- Minor clarifications without behavior changes increment the minor version.
-- Specs should be stored in a dedicated folder and referenced by feature name.
+- Version in header (e.g. v1.0); document what changed and why; breaking = major bump; clarifications = minor. Store in dedicated folder, reference by feature name.
 
-## 7) How to relate specs to tests
+## 7) Specs and tests
 
-- Every acceptance criterion must map to at least one test case.
-- Tests must reference the spec ID or filename in their description or metadata.
-- If a test is added, removed, or changed, the spec must be updated accordingly.
-- If a spec changes behavior, affected tests must be updated in the same PR.
+- Every acceptance criterion maps to ≥1 test; tests reference spec ID/filename; spec and tests updated together in same PR when behavior changes.
 
-## Step-by-step workflow
+## Workflow
 
-1. Draft the spec using the mandatory structure.
-2. Review the spec for clarity and testability.
-3. Confirm architectural constraints and layer placement.
-4. Derive acceptance criteria and map them to tests.
-5. Implement the feature strictly following the spec.
-6. Update the spec and tests together when changes are needed.
+1. Draft spec (mandatory structure) → 2. Review clarity and testability → 3. Confirm layer placement → 4. Derive acceptance criteria and map to tests → 5. Implement following spec → 6. Update spec and tests together when needed.

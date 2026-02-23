@@ -29,26 +29,15 @@ All styles follow **BEM (Block Element Modifier)** naming convention with flexib
 - **Max specificity**: 0,4,0
 
 ```scss
-// ✅ Good
-.user-card {
-}
-.user-card__avatar {
-}
-.user-card__avatar--large {
-}
-$primary-color: #007bff;
+// ✅ Good: .block__element--modifier
+.user-card { }
+.user-card__avatar--large { }
 
-// ❌ Bad
-.userCard {
-} // Not BEM
-.user-card-avatar {
-} // Should use __
-#header {
-} // No IDs
-color: red !important; // No !important
+// ❌ Bad: not BEM, IDs, !important
+.userCard { }  .user-card-avatar { }  #header { }  color: red !important;
 ```
 
-Run `npm run lint:styles` to check styles. See [STYLELINT.md](../../STYLELINT.md) for complete guide.
+Run `npm run lint:styles`. See [STYLELINT.md](../../STYLELINT.md) for full rules.
 
 ## Code Style Rules
 
@@ -75,9 +64,4 @@ Run `npm run lint:styles` to check styles. See [STYLELINT.md](../../STYLELINT.md
 
 ## Validation Checklist
 
-- No magic numbers (constants extracted).
-- No `else` statements.
-- All `if` statements use `{}`.
-- No `innerHTML` without sanitization.
-- `async` functions have `try/catch`.
-- `map` returns values only.
+See `../AI_RULES.md`; style: see [STYLELINT.md](../../STYLELINT.md). Code: no magic numbers, no `else`, `if` with `{}`, no unsanitized `innerHTML`, `async` with `try/catch`, `map` returns only.

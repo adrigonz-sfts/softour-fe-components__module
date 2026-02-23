@@ -25,12 +25,7 @@
 - [Data transformations]
 
 ## Possible States
-- [Idle]
-- [Loading]
-- [Success]
-- [Empty]
-- [Error]
-- [Other feature-specific states]
+- [Idle / Loading / Success / Empty / Error or other feature-specific states]
 
 ## Expected Errors
 - [Validation errors]
@@ -45,13 +40,7 @@
 - [No business logic in store/views/modules/shared]
 
 ## Involved Layers
-- [core/api]
-- [core/services]
-- [core/domain]
-- [store]
-- [shared]
-- [modules]
-- [views]
+- List layers per `AI_RULES.md` (e.g. core/api, core/services, core/domain, store, shared, modules, views).
 
 ## Testable Acceptance Criteria
 - [Given/When/Then statements]

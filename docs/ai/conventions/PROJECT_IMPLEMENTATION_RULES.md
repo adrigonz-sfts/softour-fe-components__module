@@ -39,6 +39,8 @@ views/
             AuthRedirect.scss
             __tests__/
                 AuthRedirect.spec.ts
+```
+
 ## Store Rules
 
 - Define Pinia stores using `defineStore`.
@@ -70,13 +72,4 @@ views/
 
 ## Validation Checklist
 
-- All `src` imports use `@/` alias.
-- Vue components use `<script setup>` and external SCSS.
-- Stores are split into `state`, `actions`, `getters` and use `defineStore`.
-- Async store actions use `try/catch/finally` and manage `loading` and `error`.
-- Routes use hash history and map to `views`.
-- UI strings use i18n keys via `$t()`.
-- Tests mock API calls and do not perform real IO.
-- Component tests use `customRenderer` builder — no manual plugin creation.
-- Test state is scoped per test — no module-scope mutable variables.
-```
+See `../AI_RULES.md`; test-specific items: `TESTING_CONVENTIONS.md`.

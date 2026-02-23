@@ -125,29 +125,16 @@
 
 ## 4) How the AI must respond when asked for code
 
-- First identify the correct layer where the change must live.
-- If the request violates layer rules, the AI must refuse and propose the correct location.
-- The AI must explain in one sentence why that layer is correct.
-- The AI must not invent new layers or file paths.
-- The AI must follow the real project structure and not create unauthorized folders.
+- Identify the correct layer; refuse and propose correct location if rules are violated.
+- Explain in one sentence why that layer is correct.
+- Do not invent new layers or file paths; follow real project structure.
 
 ## 5) Mandatory checklist before generating code
 
-- Verify the target layer is correct.
-- Verify no IO is introduced in domain.
-- Verify no business logic is introduced in store/views/shared/modules.
-- Verify mappers live in core/services.
-- Verify imports cross layers only in the permitted direction.
-- Verify domain immutability is preserved.
-- Verify new code does not create circular dependencies.
+- Layer correct; no IO in domain; no business logic in store/views/shared/modules.
+- Mappers in core/services; imports only in permitted direction; domain immutable; no circular deps.
 
 ## 6) Communication style
 
-**Be concise and direct:**
-
-- Provide only strictly relevant information.
-- Avoid verbose explanations or excessive details.
-- Skip unnecessary context unless explicitly requested.
-- Give direct answers without over-explaining.
-- When listing changes, be brief and to the point.
-- Focus on what matters: what was done and what's next (if applicable).
+- Only strictly relevant information; no verbose explanations or unnecessary context.
+- Direct answers; when listing changes, be brief (what was done, what's next if applicable).

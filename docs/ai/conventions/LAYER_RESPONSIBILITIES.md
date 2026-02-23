@@ -20,8 +20,4 @@ UI event → Store action → core/services (call api + map to domain) → Store
 
 ## Validation Checklist
 
-- Each change belongs to the correct layer (see AI_RULES.md)
-- No IO outside core/api
-- No business logic in store/modules/views
-- Mappers only in core/services
-- Domain is pure and immutable
+See `../AI_RULES.md`.
