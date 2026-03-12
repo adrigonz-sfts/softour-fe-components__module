@@ -147,7 +147,7 @@ import 'softour-fe-components__module/style.css';
 app.use(SoftourFeComponents);
 
 // O importar componentes concretos
-import { CustomTable, CustomPanel, CustomButton, CustomIcon } from 'softour-fe-components__module';
+import { SoftTable, SoftPanel, SoftButton, SoftIcon } from 'softour-fe-components__module';
 import 'softour-fe-components__module/style.css';
 ```
 

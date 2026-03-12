@@ -1,0 +1,32 @@
+---
+description: Vitest, customRenderer, E2E (Gherkin/playwright-bdd), mocking
+globs: ["**/*.spec.{ts,tsx,vue}", "**/__tests__/**", "**/__e2e__/**"]
+alwaysApply: false
+---
+
+# Testing conventions
+
+**Also apply**: chained-calls-formatting, testing-screen-queries (screen.getBy… in a variable before expect).
+
+## Stack and structure
+
+- Unit: Vitest, @testing-library/vue, @testing-library/user-event. E2E: Playwright with playwright-bdd (Gherkin).
+- Test files next to component: `__tests__/{ComponentName}.spec.ts`. Helpers/factories in `src/helpers/` (or `@/test/factories/` if present).
+
+## customRenderer (unit tests that render Vue)
+
+- **Must** use `customRenderer(Component)` from `@/helpers/customRenderer`. Never create `createPinia()`, `createRouter()`, or `createI18n()` manually.
+- Chain `.withProps()`, `.withRoute()`, `.withRoutes()`, `.withI18n()` then `.build()`. `.build()` returns `{ ...renderResult, router, pinia, i18n }`.
+- Never put the builder in `beforeEach`. Never use module-scope `let` for builders, stores, or render results. Never add wrapper helpers (e.g. `initStores`, `renderWithRouter`) for store setup — keep store access explicit in each test.
+- After `customRenderer(Component)`, stores are active; access via `useXStore()` then set up before calling `builder.build()` if needed.
+- Import `screen`, `cleanup`, `waitFor` from `@testing-library/vue`; do **not** use `render` (use customRenderer). Use `cleanup()` and `vi.clearAllMocks()` in `beforeEach` or `afterEach`.
+
+## Mocking and test data
+
+- Mock API with `vi.mock('@/core/api/...')` at module scope. Use factory functions for response data. Spy with `vi.fn()` on store actions or services.
+- Mutable state (stores, builders, render result) only inside a single test. Shared mock data can be module-scope `const`.
+
+## E2E (playwright-bdd)
+
+- Features: `src/__e2e__/features/*.feature`. Steps: `src/__e2e__/steps/*.steps.ts`; use `createBdd()` from `playwright-bdd`, `expect` from `@playwright/test`; define `Given`, `When`, `Then`.
+- Run `npm run test:e2e:gen` after editing features/steps; then `npm run test:e2e`. Prefer **role, label, placeholder, alt** for selectors; use `data-testid` only as last resort (see testing-accessibility-selectors rule). Wait for network when testing async flows. No hardcoded delays; use Playwright auto-waiting.

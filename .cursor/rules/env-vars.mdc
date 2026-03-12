@@ -1,0 +1,27 @@
+---
+description: Where and how to use environment variables
+alwaysApply: true
+---
+
+# Environment variables
+
+## Single source of truth
+
+- All env vars are read in **`src/core/api/config/config.ts`** from `import.meta.env`.
+- Any layer that needs an env value must **import it from** `@/core/api/config/config`; do not read `import.meta.env` elsewhere.
+
+## Allowed
+
+```ts
+import { TRANSPORT_API_BASE, CLIENT_ID } from '@/core/api/config/config';
+```
+
+## Prohibited
+
+- Using `import.meta.env` in views, modules, store, services, or any api file other than `config.ts`.
+
+## Adding a new env var
+
+1. Add the corresponding `VITE_*` (or existing) key to `.env` / `.env.example`.
+2. In `src/core/api/config/config.ts`, add one line: `export const FOO = str(env.VITE_FOO);` (or `strOrUndefined` if optional).
+3. Import `FOO` from `@/core/api/config/config` where needed.

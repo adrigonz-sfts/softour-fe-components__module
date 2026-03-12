@@ -1,0 +1,33 @@
+---
+description: Spec structure (SDD), template sections, PR size and spec requirements
+globs: ["**/*.md", "docs/**"]
+alwaysApply: false
+---
+
+# Spec and PR
+
+## Spec structure (order)
+
+1. **Objective** — problem and single most important outcome.
+2. **Inputs** — entry points (UI, routes, store, services); required/optional; formats.
+3. **Outputs** — UI changes, state updates, side effects, return shapes.
+4. **Edge cases** — empty, error, boundary, invalid inputs.
+5. **Architectural constraints** — layer rules, prohibited deps, placement of IO and logic.
+6. **Acceptance criteria** — testable Given/When/Then; pass/fail; happy path and edges.
+
+Functional (user-visible) first; technical (data flow, layers) after, in same doc if needed. Plain, testable language; no implementation details or undefined terms.
+
+## Spec template (sections to include)
+
+Context, Functional description, Input/Output contracts, Possible states, Expected errors, Architectural constraints, Involved layers, Testable acceptance criteria, Out of scope. Version specs in header; map every acceptance criterion to tests; update spec and tests together in the same PR when behavior changes.
+
+## SDD
+
+- Feature change starts with a spec; behavior defined before code.
+- Tests trace to spec acceptance criteria. Architecture rules in specs are binding.
+
+## PR
+
+- Max **200 lines** of production code change per PR (docs/tests/generated don’t count). Max **500 lines** per file. Split larger work into multiple PRs.
+- **Behavior changes** (features, user-visible, business rules, data flow): spec required; acceptance criteria map to tests; spec and test updates in same PR. Docs-only, refactor-only, maintenance-only: no spec required (state explicitly).
+- No architecture violations; no ambiguous or hidden requirements; all new behavior covered by tests.

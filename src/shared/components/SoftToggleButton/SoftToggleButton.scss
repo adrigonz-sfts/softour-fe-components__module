@@ -1,0 +1,101 @@
+.soft-toggle-button {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 3rem;
+	height: 3rem;
+	padding: 0;
+
+	border: var(--border-width-sm) solid transparent;
+	border-radius: var(--border-radius-sm);
+
+	cursor: pointer;
+
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+
+	&:focus-visible {
+		outline: var(--border-width-md) solid var(--border-color-focus);
+		outline-offset: var(--space-xxs);
+	}
+
+	&__icon {
+		flex-shrink: 0;
+	}
+
+	&__state {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		display: block;
+
+		width: 0.75rem;
+		height: 0.75rem;
+
+		background: var(--btn-status-bg);
+		border: var(--border-width-sm) solid var(--color-text-inverse);
+		border-radius: var(--border-radius-sm);
+
+		&--warning {
+			--btn-status-bg: var(--color-warning-500);
+		}
+
+		&--danger {
+			--btn-status-bg: var(--color-error-500);
+		}
+
+		&--success {
+			--btn-status-bg: var(--color-success-500);
+		}
+	}
+
+	&--primary {
+		background-color: var(--color-action-primary);
+		color: var(--color-text-inverse);
+
+		&:hover:not(:disabled) {
+			background-color: var(--color-action-primary-hover);
+		}
+
+		&:active:not(:disabled),
+		&[aria-pressed='true']:not(:disabled) {
+			background-color: var(--color-action-primary-active);
+		}
+
+		&:disabled {
+			background-color: var(--color-action-primary-disabled);
+			color: var(--color-text-disabled);
+		}
+	}
+
+	&--secondary {
+		background-color: var(--color-action-secondary);
+		color: var(--color-text-brand-primary);
+		border-color: var(--color-text-brand-primary);
+
+		&:hover:not(:disabled) {
+			background-color: var(--color-action-secondary-hover);
+			color: var(--color-text-inverse);
+		}
+
+		&:active:not(:disabled),
+		&[aria-pressed='true']:not(:disabled) {
+			background-color: var(--color-action-secondary-active);
+			border-color: var(--color-action-secondary-active);
+			color: var(--color-text-inverse);
+		}
+
+		&:disabled {
+			background-color: var(--color-action-secondary-disabled);
+			color: var(--color-text-disabled);
+		}
+	}
+
+	&:disabled {
+		pointer-events: none;
+		cursor: not-allowed;
+	}
+}

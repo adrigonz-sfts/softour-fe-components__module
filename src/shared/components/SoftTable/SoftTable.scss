@@ -1,0 +1,25 @@
+$panelPadding: var(--space-lg);
+$panelTitleHeight: 65px;
+$tableTitleHeight: 48px;
+$tableTitleMatgin: var(--space-lg);
+
+.soft-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(
+        95vh - #{$panelPadding} - #{$panelTitleHeight} - #{$tableTitleHeight} - #{$tableTitleMatgin}
+    );
+
+    &__heading {
+        padding-right: 10px;
+        background-color: var(--color-surface-base-inverse);
+    }
+
+    &__content {
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+    }
+}

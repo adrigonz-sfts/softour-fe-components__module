@@ -1,0 +1,81 @@
+.soft-pill {
+	--pill-bg: var(--color-surface-float-active);
+	--pill-color: var(--color-text-secondary);
+
+	cursor: pointer;
+	display: inline-flex;
+	gap: var(--space-xs);
+	align-items: center;
+	height: var(--space-xl);
+	padding: 0 var(--space-md);
+	color: var(--pill-color);
+	text-decoration: none;
+	background: var(--pill-bg);
+	border: none;
+	border-radius: var(--border-radius-sm);
+
+	&--with-icon {
+		gap: var(--space-sm);
+	}
+
+	&--icon-reversed {
+		flex-direction: row-reverse;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+	}
+
+	&--md {
+		height: var(--space-2xl);
+	}
+
+	&--lg {
+		height: var(--space-3xl);
+	}
+
+	&:hover {
+		--pill-color: var(--color-text-inverse);
+		--pill-bg: var(--color-surface-base-selected);
+	}
+
+	&:active {
+		--pill-bg: var(--color-surface-float-hover);
+	}
+
+	&--bold {
+		--pill-color: var(--color-text-inverse);
+		--pill-bg: var(--color-surface-base-selected);
+
+		&:hover {
+			--pill-color: var(--color-text-primary);
+			--pill-bg: var(--color-surface-float-hover);
+		}
+
+		&:active {
+			--pill-color: var(--color-text-primary);
+			--pill-bg: var(--color-surface-float);
+		}
+	}
+
+	&--selected,
+	&.router-link-exact-active {
+		--pill-color: var(--color-text-inverse);
+		--pill-bg: var(--color-surface-brand-default);
+
+		span {
+			font-weight: 700;
+			white-space: nowrap;
+		}
+
+		&:hover {
+			--pill-color: var(--color-text-inverse);
+			--pill-bg: var(--color-surface-brand-default);
+		}
+
+		&:active {
+			--pill-color: var(--color-text-inverse);
+			--pill-bg: var(--color-surface-brand-canvas);
+		}
+	}
+}

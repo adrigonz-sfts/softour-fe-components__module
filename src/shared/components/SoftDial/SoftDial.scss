@@ -1,0 +1,222 @@
+@mixin dial-content-visible {
+	--dial-background-color: rgba(0, 0, 0, 0.15);
+
+	.soft-dial__value {
+		visibility: visible;
+	}
+
+	.soft-dial__progress-foreground {
+		opacity: 1;
+	}
+}
+
+.soft-dial {
+	--soft-dial-size: 134px;
+	--soft-dial-background-color: var(--color-surface-float-active);
+	--soft-dial-track-color: var(--color-200);
+	--soft-dial-progress-color: var(--color-surface-brand-default);
+	--soft-dial-border-size: 6px;
+	--soft-dial-border-size-double: calc(var(--soft-dial-border-size) * 2);
+	--soft-dial-indicator-width: 4px;
+	--soft-dial-indicator-height: 25px;
+	--soft-dial-input-max-width: 50px;
+
+	cursor: pointer;
+
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+
+	width: min-content;
+
+	text-align: center;
+
+	&__device {
+		overflow: hidden;
+		width: var(--soft-dial-size);
+		height: var(--soft-dial-size);
+
+		&::after {
+			content: '';
+
+			transform-origin: center center;
+			transform: rotate(calc(1deg * var(--soft-dial-deg)));
+
+			display: block;
+
+			width: var(--soft-dial-size);
+			height: var(--soft-dial-size);
+
+			visibility: hidden;
+			background: linear-gradient(to bottom, white 0% 100%) no-repeat 50% 0%;
+			background-size: var(--soft-dial-indicator-width) var(--soft-dial-indicator-height);
+			border: none;
+			border-radius: 100%;
+
+			transition: background-color 0.5s ease;
+		}
+	}
+
+	&__value {
+		position: absolute;
+		inset: 0;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		width: var(--soft-dial-size);
+		height: var(--soft-dial-size);
+		margin: auto;
+		padding: 0;
+
+		color: var(--color-text-primary);
+		text-align: center;
+
+		visibility: hidden;
+		background-color: var(--soft-dial-background-color);
+		border: none;
+		border-radius: 100%;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			margin: 0;
+			appearance: none;
+		}
+	}
+
+	&__input {
+		z-index: 10;
+
+		width: min-content;
+		max-width: var(--soft-dial-input-max-width);
+		margin: 0;
+		padding: 0;
+
+		color: var(--color-text-primary);
+		text-align: center;
+
+		appearance: textfield;
+		background-color: transparent;
+		border: none;
+		border-radius: var(--border-radius-sm);
+		outline: none;
+
+		transition: background-color 0.2s, border-color 0.2s;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			margin: 0;
+			appearance: none;
+		}
+
+		&:focus-visible {
+			outline: var(--border-width-md) solid var(--border-color-focus);
+			outline-offset: var(--space-xxs);
+		}
+
+		&:hover {
+			background-color: var(--color-surface-base);
+		}
+	}
+
+	&__progress {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		overflow: visible;
+
+		width: var(--soft-dial-size);
+		height: var(--soft-dial-size);
+		margin: auto;
+
+		&-background {
+			stroke: var(--soft-dial-track-color);
+			stroke-width: var(--soft-dial-border-size);
+		}
+
+		&-foreground {
+			opacity: 0.25;
+			filter: drop-shadow(0 0 4px var(--soft-dial-progress-color));
+			stroke: var(--soft-dial-progress-color);
+			stroke-width: var(--soft-dial-border-size);
+		}
+	}
+
+	&__container {
+		position: relative;
+		width: var(--soft-dial-size);
+		height: var(--soft-dial-size);
+
+		&:hover,
+		&--dragging {
+			.soft-dial__device::after {
+				visibility: visible;
+			}
+		}
+	}
+
+	&__inner-content {
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__input-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__label {
+		overflow: hidden;
+		display: block;
+
+		width: var(--soft-dial-size);
+
+		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&--sm {
+		--soft-dial-size: 70px;
+		--soft-dial-indicator-width: 3px;
+		--soft-dial-indicator-height: 18px;
+		--soft-dial-input-max-width: 35px;
+	}
+
+	&--static {
+		--soft-dial-track-color: var(--color-surface-base-disabled);
+
+		margin: 0;
+
+		.soft-dial__container {
+			@include dial-content-visible;
+
+			&--dragging {
+				.soft-dial__input {
+					font-weight: 700;
+				}
+			}
+		}
+	}
+
+	&--hoverable {
+		--soft-dial-track-color: var(--color-400);
+
+		&:hover {
+			.soft-dial__container:hover,
+			.soft-dial__container--dragging {
+				@include dial-content-visible;
+			}
+		}
+	}
+}

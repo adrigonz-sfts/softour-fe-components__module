@@ -1,0 +1,56 @@
+.soft-icon-button {
+    margin: 0;
+    padding: 0;
+    border: var(--border-width-sm) solid transparent;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary);
+
+    &:focus-visible {
+        outline: var(--border-width-md) solid var(--border-color-focus);
+        outline-offset: var(--space-xxs);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &--icon {
+        background-color: transparent;
+        padding: var(--space-xs);
+
+        &:hover:not(:disabled) {
+            color: var(--color-surface-base-hover);
+        }
+
+        &:active:not(:disabled) {
+            color: var(--color-surface-base-active);
+        }
+
+        &:disabled {
+            color: var(--color-text-disabled);
+        }
+    }
+
+    &--button {
+        background-color: var(--color-surface-brand-default);
+        padding: var(--space-xs);
+        color: var(--color-text-inverse);
+
+        &:hover:not(:disabled) {
+            background-color: var(--color-surface-brand-hover);
+        }
+
+        &:active:not(:disabled) {
+            background-color: var(--color-surface-brand-active);
+        }
+
+        &:disabled {
+            background-color: var(--color-surface-brand-disabled);
+            color: var(--color-text-disabled);
+        }
+    }
+}

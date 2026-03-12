@@ -1,0 +1,31 @@
+---
+description: Vue template — one attribute per line, closing > on its own line
+globs: "**/*.vue"
+alwaysApply: false
+---
+
+# Vue template attributes
+
+When an HTML/Vue tag has **more than one attribute**, put each attribute on its own line and put the closing `>` or `/>` on the next line.
+
+**Wrong (multiple attributes on one line):**
+```vue
+<div class="login-redirection-view" data-testid="login-redirection-view">
+<AuthCallback :clientId="clientId" />
+```
+
+**Correct (one attribute per line, closing on new line):**
+```vue
+<div
+	class="login-redirection-view"
+	data-testid="login-redirection-view"
+>
+<AuthCallback
+	:clientId="clientId"
+/>
+```
+
+- One attribute per line.
+- Closing `>` or `/>` on its own line after the last attribute.
+- Indent attributes and closing bracket with a tab (project uses tabs).
+- Tags with only one attribute may stay on one line (ESLint allows it).

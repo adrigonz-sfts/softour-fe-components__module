@@ -1,0 +1,38 @@
+---
+description: Prefer role, label, placeholder, alt for tests; data-testid last
+globs: ["**/*.spec.{ts,tsx,vue}", "**/__tests__/**", "**/__e2e__/**"]
+alwaysApply: false
+---
+
+# Accessibility-first selectors in tests
+
+Use **accessibility-oriented selectors** first; use `data-testid` only when no role, label, placeholder, or alt is available or stable.
+
+**Order of preference**
+
+1. **Role + accessible name**: `getByRole('button', { name: 'Submit' })`, `getByRole('link', { name: 'Start login' })`, `getByRole('heading', { name: 'Home' })`, `getByRole('region', { name: 'Login redirection' })`
+2. **Label**: `getByLabelText(/password/i)` (unit), `page.getByLabel(/password/i)` (E2E)
+3. **Placeholder**: `getByPlaceholderText('Email')` when there is no visible label
+4. **Alt (images)**: `getByAltText('Logo')`
+5. **Text content**: `getByText('Welcome')` when the text is stable and user-visible
+6. **data-testid**: Only as last resort when no role/label/placeholder/alt fits
+
+**Markup for testability**
+
+- Give interactive elements visible, stable text (links, buttons) so they have an accessible name.
+- Use `aria-label` or `aria-labelledby` on regions/landmarks when there is no heading.
+- Use `<label for="id">` (or aria-label) on form inputs so `getByLabel` works.
+- Avoid relying on `data-testid` in new code; add roles/labels first.
+
+**Examples**
+
+```ts
+// Prefer
+screen.getByRole('link', { name: 'Start login' });
+page.getByRole('button', { name: /sign in|login/i });
+screen.getByRole('region', { name: 'Login redirection' });
+page.getByLabel(/password/i);
+
+// Last resort
+screen.getByTestId('start-login-button');
+```
