@@ -1,0 +1,146 @@
+.soft-pad {
+	display: grid;
+	grid-template-columns: 28px 1fr;
+	grid-template-rows: 1fr 28px;
+	gap: var(--space-xxs);
+
+	width: 100%;
+	min-width: 220px;
+
+	&__icon {
+		display: grid;
+		grid-column: 1;
+		grid-row: 2;
+		place-items: center;
+
+		&-svg {
+			color: var(--color-text-secondary);
+		}
+
+		&-path {
+			stroke: currentcolor;
+		}
+
+		&-circle {
+			fill: currentcolor;
+			stroke: var(--border-color-subtle);
+		}
+	}
+
+	&__axis {
+		display: flex;
+		align-items: center;
+
+		&--x {
+			grid-column: 2;
+			grid-row: 2;
+			flex-direction: row-reverse;
+		}
+
+		&--y {
+			grid-column: 1;
+			grid-row: 1;
+			flex-direction: column;
+
+			label {
+				transform: rotate(180deg);
+				margin-bottom: auto;
+				writing-mode: vertical-lr;
+			}
+		}
+
+		label {
+			overflow: hidden;
+			color: var(--color-text-secondary);
+			text-overflow: ellipsis;
+		}
+	}
+
+	&__value {
+		width: 28px;
+		height: 20px;
+		margin-right: auto;
+
+		color: var(--color-text-brand-primary);
+		text-align: center;
+
+		background: transparent;
+		border: none;
+		border-radius: var(--border-radius-sm);
+		outline: none;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			margin: 0;
+			appearance: none;
+		}
+
+		&:focus-visible {
+			outline: var(--border-width-md) solid var(--border-color-focus);
+			outline-offset: var(--space-xxs);
+		}
+
+		&:hover,
+		&:focus {
+			background: var(--color-surface-float-active);
+		}
+	}
+
+	&__container {
+		display: block;
+		grid-column: 2;
+		grid-row: 1;
+
+		width: 100%;
+		height: 100%;
+		padding: var(--space-xxs);
+
+		border: var(--border-width-md) solid var(--border-color-subtle);
+		border-radius: var(--border-radius-md);
+
+		> svg {
+			overflow: visible;
+			display: block;
+		}
+	}
+
+	&__gradient-stop {
+		stop-opacity: 1;
+		transition: all 0.3s;
+
+		&:nth-child(1) {
+			stop-color: var(--color-surface-base-inverse);
+		}
+
+		&:nth-child(2) {
+			stop-color: var(--color-surface-brand-default);
+		}
+
+		&:nth-child(3) {
+			stop-color: var(--color-surface-base);
+		}
+	}
+
+	&__selector {
+		cursor: grab;
+
+		r: 10px;
+		fill: var(--color-surface-base-inverse);
+		stroke: var(--color-400);
+		stroke-width: 2px;
+
+		transition: r 0.2s;
+
+		&:hover {
+			r: 12px;
+			stroke: var(--color-surface-brand-default);
+		}
+
+		&:active,
+		&--dragging,
+		&--dragging:hover {
+			r: 20px;
+			stroke: var(--color-400);
+		}
+	}
+}

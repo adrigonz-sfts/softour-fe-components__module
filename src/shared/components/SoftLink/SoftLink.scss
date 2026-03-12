@@ -1,0 +1,152 @@
+.soft-link {
+    cursor: pointer;
+    font-size: inherit;
+    color: var(--link-color);
+    text-decoration: underline;
+
+    &--with-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    &--icon-reversed {
+        flex-direction: row-reverse;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+    }
+
+    &--default {
+        --link-color: var(--color-text-primary);
+    }
+
+    &--primary {
+        --link-color: var(--color-text-brand-primary);
+    }
+
+    &--inverted {
+        --link-color: var(--color-text-inverse);
+    }
+
+    &--disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        color: var(--color-text-disabled);
+    }
+
+    // Button-style variants (match SoftButton)
+    &--button-primary,
+    &--button-secondary,
+    &--button-delete {
+        display: inline-flex;
+        gap: var(--space-xs);
+        align-items: center;
+        justify-content: center;
+        min-height: var(--space-xl);
+        padding: var(--space-xs) var(--space-md);
+        text-decoration: none;
+        border: var(--border-width-sm) solid transparent;
+        border-radius: var(--border-radius-sm);
+
+        &:focus-visible {
+            outline: var(--border-width-md) solid var(--border-color-focus);
+            outline-offset: var(--space-xxs);
+        }
+    }
+
+    &--button-icon-primary,
+    &--button-icon-secondary,
+    &--button-icon-delete {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--space-xl);
+        min-height: var(--space-xl);
+        padding: var(--space-xs);
+        text-decoration: none;
+        border: var(--border-width-sm) solid transparent;
+        border-radius: var(--border-radius-sm);
+
+        &:focus-visible {
+            outline: var(--border-width-md) solid var(--border-color-focus);
+            outline-offset: var(--space-xxs);
+        }
+    }
+
+    &--button-primary,
+    &--button-icon-primary {
+        background-color: var(--color-action-primary);
+        color: var(--color-text-inverse);
+
+        &:hover:not(.soft-link--disabled) {
+            background-color: var(--color-action-primary-hover);
+        }
+
+        &:active:not(.soft-link--disabled) {
+            background-color: var(--color-action-primary-active);
+        }
+
+        &.soft-link--disabled {
+            background-color: var(--color-action-primary-disabled);
+            color: var(--color-text-disabled);
+        }
+
+        &.soft-link--active {
+            background-color: var(--color-action-primary-active);
+        }
+    }
+
+    &--button-secondary,
+    &--button-icon-secondary {
+        background-color: var(--color-action-secondary);
+        color: var(--color-text-brand-primary);
+        border: 1px solid var(--color-text-brand-primary);
+
+        &:hover:not(.soft-link--disabled) {
+            background-color: var(--color-action-secondary-hover);
+            color: var(--color-text-inverse);
+        }
+
+        &:active:not(.soft-link--disabled) {
+            background-color: var(--color-action-secondary-active);
+            border: 1px solid var(--color-action-secondary-active);
+            color: var(--color-text-inverse);
+        }
+
+        &.soft-link--disabled {
+            background-color: var(--color-action-secondary-disabled);
+            color: var(--color-text-disabled);
+        }
+
+        &.soft-link--active {
+            background-color: var(--color-action-secondary-active);
+            border-color: var(--color-action-secondary-active);
+            color: var(--color-text-inverse);
+        }
+    }
+
+    &--button-delete,
+    &--button-icon-delete {
+        background-color: var(--color-action-error);
+        color: var(--color-text-inverse);
+
+        &:hover:not(.soft-link--disabled) {
+            background-color: var(--color-action-error-hover);
+        }
+
+        &:active:not(.soft-link--disabled) {
+            background-color: var(--color-action-error-active);
+        }
+
+        &.soft-link--disabled {
+            background-color: var(--color-action-error-disabled);
+            color: var(--color-text-disabled);
+        }
+
+        &.soft-link--active {
+            background-color: var(--color-action-error-active);
+        }
+    }
+}

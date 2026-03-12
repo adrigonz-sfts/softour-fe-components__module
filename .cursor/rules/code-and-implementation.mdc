@@ -1,0 +1,34 @@
+---
+description: Formatting, Vue, imports, modules, store, routing, i18n, and naming
+globs: "**/*.{js,ts,vue}"
+alwaysApply: false
+---
+
+# Code and implementation
+
+## Formatting
+
+- Formatting: ESLint (tabs, single quotes, semicolons, chained-call newlines). Run `npm run format` or `eslint src/ --fix`.
+- Stylelint: BEM (`.block__element--modifier`), SCSS vars/mixins kebab-case, no IDs, no `!important`, max specificity 0,4,0. Run `npm run lint:styles`.
+
+## Imports and Vue
+
+- Use `@/` alias for imports from `src`; avoid relative paths when `@/` applies.
+- Vue: `<script setup>` only; external SCSS via `<style src="./ComponentName.scss" lang="scss" scoped />` (no closing tag). No large inline style blocks. Template: when a tag has more than one attribute, one attribute per line and closing `>` on its own line (see vue-template-attributes rule).
+- View-specific modules live in `views/{ViewName}/`; shared modules in `shared/modules/`. View imports: relative for view modules; `@/` for shared. Tests colocated in `__tests__/` next to component.
+
+## Store, routing, i18n
+
+- Pinia: `defineStore`; split state, actions, getters. Async actions: `try/catch` (and `finally` if needed); manage `loading`/`error`. Store calls `core/services` for data.
+- Routing: hash history (`createWebHashHistory`); routes map to components in `views`.
+- i18n: `$t('key.path')` for UI strings; keys in `src/locale/{lang}.json`; no hardcoded UI strings where i18n is expected.
+
+## Code style (ESLint)
+
+- No magic numbers (named constants). No `else`. All `if` use `{}`. No ambiguous conditions; no truthy/falsy without explicit intent.
+- No side effects in `map`/`filter`; `map` for return values only. `async/await` with `try/catch`. No `innerHTML` without sanitization. Multiline when multiple attributes on a tag.
+
+## Naming
+
+- English only. camelCase (vars, functions); UPPER_SNAKE_CASE (constants). Booleans: prefix with `is`, `has`, `can`, `should`, or `needs`. Descriptive; no abbreviations unless standard and documented.
+- Layer-appropriate: domain = business language; services = use cases; API = resource/endpoint; store actions = state change. No names that hide IO or wrong layer.

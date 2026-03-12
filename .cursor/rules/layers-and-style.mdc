@@ -1,0 +1,38 @@
+---
+description: Layer rules, prohibitions, data flow, and AI response style
+alwaysApply: true
+---
+
+# Layers and response style
+
+## Response style
+
+- Be concise; bullets over paragraphs. Return only what is requested.
+- If code requested → code only. If explanation → essential reasoning only.
+- Do not over-explain, justify, restate context, or add narrative. No alternatives unless asked.
+- Identify the correct layer internally. If the request violates layer rules, refuse and propose the correct location in one sentence. Do not invent new layers or file paths.
+
+## Layers (can / cannot)
+
+| Layer | Role | Constraint |
+|-------|------|------------|
+| core/api | IO, endpoints, DTOs | No business logic, no store/UI |
+| core/domain | Pure rules, immutable entities | No IO, no deps on anything |
+| core/services | Orchestrate api, map DTO→domain | No UI, no store; mappers here only |
+| store | State, actions, getters | No domain logic; delegate to core/services |
+| shared | Utils, composables, generic UI | No store, no core/services, no domain |
+| modules | Compose UI, connect store | No domain, no IO |
+| views | Layouts, routes, modules | Thin; no business logic, no IO |
+
+**Dependency**: Imports flow downward only: views/modules/shared → store → core/services ↔ core/api → core/domain. core/domain depends on nothing.
+
+## Prohibitions
+
+- IO in domain; business logic in store/shared/modules/views; core/api or store/views imports in domain or core/services.
+- Endpoints from UI in production; mappers in store or views; mutable domain entities; store or core/services access from shared.
+
+## Data flow
+
+1. UI event → store action → core/services.
+2. core/services calls core/api, maps DTOs to domain.
+3. Store updates state; UI renders.

@@ -1,0 +1,55 @@
+.soft-tag {
+	--tag-bg: var(--color-surface-brand-default);
+	--tag-text: var(--color-text-inverse);
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: var(--space-xxs) var(--space-xs);
+
+	font-family: var(--font-family-base);
+	font-size: 0.75rem;
+	line-height: 1.25;
+	color: var(--tag-text);
+	text-align: center;
+	text-transform: uppercase;
+
+	background: var(--tag-bg);
+	border-radius: var(--border-radius-sm);
+
+	&--primary {
+		--tag-bg: var(--color-surface-brand-default);
+		--tag-text: var(--color-text-inverse);
+	}
+
+	&--secondary {
+		--tag-bg: var(--color-surface-brand-secondary);
+		--tag-text: var(--color-text-inverse);
+	}
+
+	&--neutral {
+		--tag-bg: var(--color-surface-brand-canvas);
+		--tag-text: var(--color-text-primary);
+	}
+
+	&--success {
+		--tag-bg: var(--color-success-500);
+		--tag-text: var(--color-text-inverse);
+	}
+
+	&--warning {
+		--tag-bg: var(--color-warning-500);
+		--tag-text: var(--color-text-inverse);
+	}
+
+	&--error {
+		--tag-bg: var(--color-error-500);
+		--tag-text: var(--color-text-inverse);
+	}
+
+	&--info {
+		--tag-bg: var(--color-info-500);
+		--tag-text: var(--color-text-inverse);
+	}
+}

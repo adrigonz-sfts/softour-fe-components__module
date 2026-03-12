@@ -1,0 +1,35 @@
+---
+description: Format method chains with one call per line when chain has two or more calls
+globs: "**/*.{js,ts,vue}"
+alwaysApply: false
+---
+
+# Chained calls formatting
+
+When a chain has **two or more** chained calls (two or more dots), put each call on its own line. Use tabs for indentation (project standard).
+
+**Wrong (long chain on one line):**
+```ts
+customRenderer(MyView).withRoute('/').withProps({ id: 1 }).build();
+```
+
+**Wrong (multiple chained calls on same line after break):**
+```ts
+customRenderer(MyView).withRoute('/')
+	.withProps({ id: 1 }).build();
+```
+
+**Correct (one call per line, tabs):**
+```ts
+customRenderer(MyView)
+	.withRoute('/')
+	.withProps({ id: 1 })
+	.build();
+```
+
+**Correct (single chained call may stay on one line):**
+```ts
+expect(MyView).toBeVisible();
+```
+
+Single calls like `foo()` and chains with exactly one dot (e.g. `a().b()`) may stay on one line. Enforced by ESLint `@stylistic/newline-per-chained-call` with `ignoreChainWithDepth: 1`.

@@ -1,0 +1,28 @@
+---
+description: Use descriptive variables for screen.getBy... in tests before expect()
+globs: "**/*.spec.{ts,tsx,vue}"
+alwaysApply: false
+---
+
+# Screen queries in tests
+
+When writing tests that use `screen.getByRole`, `screen.getByText`, `screen.getByLabelText`, or other `screen.getBy...` queries, **always assign the result to a descriptive variable** before using it in `expect()`.
+
+**Wrong (inline in expect):**
+```ts
+expect(screen.getByRole('heading', { name: 'Home' })).toBeTruthy();
+expect(screen.getByText('You are on the home page.')).toBeTruthy();
+```
+
+**Correct (descriptive variable first):**
+```ts
+const heading = screen.getByRole('heading', { name: 'Home' });
+expect(heading).toBeTruthy();
+
+const homeText = screen.getByText('You are on the home page.');
+expect(homeText).toBeTruthy();
+```
+
+- Name the variable after what the element represents (e.g. `heading`, `submitButton`, `welcomeText`), not the query type.
+- Use one variable per query; then pass that variable to `expect(...)`.
+- This improves readability and makes failure messages and later assertions clearer.

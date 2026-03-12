@@ -1,0 +1,62 @@
+.soft-tab {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-top-left-radius: var(--border-radius-sm);
+    border-top-right-radius: var(--border-radius-sm);
+
+    &--underline {
+        padding: 0 var(--space-md) var(--space-md);
+    }
+
+    &--filled {
+        padding: var(--space-xs) var(--space-md);
+        background-color: var(--color-surface-float);
+    }
+
+    &:is(button) {
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: var(--border-width-md) solid var(--border-color-focus);
+        outline-offset: var(--space-xxs);
+    }
+
+    &:hover {
+        color: var(--color-surface-float-active-hover);
+    }
+
+    &--filled:hover:not(.soft-tab--disabled) {
+        background-color: var(--color-surface-float-hover);
+    }
+
+    &--underline.soft-tab--active {
+        color: var(--color-surface-float-active-hover);
+        border-bottom: var(--border-width-md) solid var(--color-surface-float-active-hover);
+
+        &:hover {
+            color: var(--color-surface-float-active-hover);
+        }
+    }
+
+    &--filled.soft-tab--active {
+        color: var(--color-text-inverse);
+        background-color: var(--color-surface-brand-default);
+
+        &:hover {
+            background-color: var(--color-surface-brand-hover);
+        }
+    }
+
+    &--disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
